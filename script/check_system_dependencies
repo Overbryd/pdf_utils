@@ -1,0 +1,62 @@
+#!/usr/bin/env ruby
+$:.unshift(File.join(File.dirname(__FILE__), '../lib'))
+require 'pdf_utils'
+
+tmpdir = File.join(Dir.tmpdir, "#{$$}-dependency_checks")
+FileUtils.mkdir(tmpdir) rescue nil
+
+root = File.join(File.dirname(__FILE__), '../')
+checkfile = File.join(tmpdir, 'check.pdf')
+FileUtils.cp(File.join(root, 'spec/fixtures/marketing.pdf'), checkfile)
+
+def check(what, &block)
+  print "Checking #{what}... "
+  yield
+  if $?.success?
+    puts "passed."
+  else
+    puts "failed."
+  end
+end
+
+check 'pdf info' do
+  PdfUtils::info(checkfile)
+end
+
+check 'pdf table of contents' do
+  PdfUtils::toc(checkfile)
+end
+
+check 'pdf to text' do
+  PdfUtils::to_text(checkfile)
+end
+
+check 'pdf uncompress' do
+  PdfUtils::uncompress(checkfile)
+end
+
+check 'pdf to swf' do
+  PdfUtils::to_swf(checkfile, File.join(tmpdir, 'check.swf'))
+end
+
+check 'pdf slicing' do
+  PdfUtils::slice(checkfile, 1, 2, File.join(tmpdir, 'sliced.pdf'))
+end
+
+check 'pdf bursting' do
+  PdfUtils::burst(checkfile, File.join(tmpdir, 'burst-%04d.pdf'))
+end
+
+check 'pdf background' do
+  PdfUtils::watermark(checkfile, File.join(tmpdir, 'watermarked.pdf'), :margin => 0) do |page|
+    page.text 'I am watermarked'
+  end
+end
+
+check 'pdf to cover' do
+  PdfUtils::thumbnail(checkfile, :target => File.join(tmpdir, 'cover.jpg'))
+end
+
+check 'pdf to snapshot' do
+  PdfUtils::snapshot(checkfile, File.join(tmpdir, 'snapshot.pdf'))
+end

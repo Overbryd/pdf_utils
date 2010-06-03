@@ -1,0 +1,24 @@
+InfoKey: Author
+InfoValue: Alexander Lang
+InfoKey: Producer
+InfoValue: Mac OS X 10.5.6 Quartz PDFContext
+InfoKey: Creator
+InfoValue: Preview
+InfoKey: ModDate
+InfoValue: D:20100112173451+01'00'
+InfoKey: Title
+InfoValue: marketing
+InfoKey: CreationDate
+InfoValue: D:20090204134255Z
+PdfID0: da3b124d8f88a67fcd66e9c0caa73d
+PdfID1: d356e659da66429b9c1c5ab09995e652
+NumberOfPages: 3
+BookmarkTitle: Eine Arbeitsgemeinschaft der Verlage
+BookmarkLevel: 1
+BookmarkPageNumber: 1
+BookmarkTitle: Studienb&#252;cher Literatur und Medien
+BookmarkLevel: 1
+BookmarkPageNumber: 2
+BookmarkTitle: Deckblatt
+BookmarkLevel: 1
+BookmarkPageNumber: 3
