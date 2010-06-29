@@ -4,8 +4,8 @@ begin
     gemspec.name = "pdf_utils"
     gemspec.summary = "PdfUtils abstracts a lot of well working UNIX tools for PDF files"
     gemspec.description = <<-DESC
-    Requires those tools xpdf, pdftk, swftools/pdf2swf and imagemagick.
-    You can check their functionality by running `$ script/check_system_dependencies´ or `$ rake check_system_dependencies´.
+    Requires xpdf, pdftk, swftools/pdf2swf and imagemagick.
+    You can check their functionality by running `$ rake check_system_dependencies´.
     DESC
     gemspec.email = "l.rieder@gmail.com"
     gemspec.homepage = "http://github.com/Overbryd/pdf_utils"
